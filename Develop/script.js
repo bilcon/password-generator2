@@ -166,6 +166,46 @@ function generatePassword() {
   } else if (confirmUppercase && confirmNumber && confirmCharacter) {
     choices = character.concat(alphaUpper, number);
   }
+
+  // Else if for 2 positive options
+  else if (confirmLowercase && confirmUppercase) {
+    choices = alpha.concat(alpha);
+  } else if (confirmLowercase && confirmNumber) {
+    choices = alpha.concat(number);
+  } else if (confirmLowercase && confirmCharacter) {
+    choices = character.concat(alpha);
+  } else if (confirmUppercase && confirmNumber) {
+    choices = number.concat(alphaUpper);
+  } else if (confirmUppercase && confirmCharacter) {
+    choices = character.concat(alphaUpper);
+  } else if (confirmNumber && confirmCharacter) {
+    choices = character.concat(number);
+  }
+
+  // Else if for 1 positive option
+  else if (confirmLowercase) {
+    choices = alpha;
+  } else if (confirmUppercase) {
+    choices = alphaUpper;
+  } else if (confirmNumber) {
+    choices = number;
+  } else if (confirmCharacter) {
+    choices = character;
+  }
+
+  // password variable is an array placeholder for user generated amount of length
+  var password = [];
+
+  // Start random selection variables:
+  // Random selection for all variables:
+  for (var i = 0; i < enter; i++) {
+    var pickChoices = choices[Math.floor(Math.random() * choices.length)];
+    password.push(pickChoices);
+  }
+  // This joins the password array and converts it to a string
+  var ps = password.join("");
+  UserInput(ps);
+  return ps;
 }
 
 // Assignment Code
