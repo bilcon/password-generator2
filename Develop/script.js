@@ -1,3 +1,10 @@
+// User input variables:
+var enter;
+var confirmLowercase;
+var confirmUppercase;
+var confirmNumber;
+var confirmCharacter;
+
 // Starting Password variable values:
 // Lowercase characters
 alpha = [
